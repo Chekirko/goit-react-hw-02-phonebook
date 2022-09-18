@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from 'Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
+import { ContactForm } from '../ContactForm/ContactForm';
+import { Filter } from '../Filter/Filter';
+import { ContactList } from '../ContactList/ContactList';
+import { Container, PageTitle, ContactsTitle } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -42,20 +43,20 @@ export class App extends Component {
     );
 
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Container>
+        <PageTitle>Phonebook</PageTitle>
         <ContactForm
           contacts={contacts}
           changeState={this.handleAddContact}
         ></ContactForm>
-        <h2>Contacts</h2>
+        <ContactsTitle>Contacts</ContactsTitle>
         <Filter filter={filter} onChange={this.handleFilter}></Filter>
 
         <ContactList
           contacts={visibleContacts}
           onBtnDelete={this.handleDeleteContact}
         ></ContactList>
-      </div>
+      </Container>
     );
   }
 }
