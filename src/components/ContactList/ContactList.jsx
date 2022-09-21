@@ -13,7 +13,7 @@ export const ContactList = ({ contacts, onBtnDelete }) => {
             name={name}
             number={number}
             onBtnDelete={onBtnDelete}
-          ></ContactItem>
+          />
         );
       })}
     </Contacts>

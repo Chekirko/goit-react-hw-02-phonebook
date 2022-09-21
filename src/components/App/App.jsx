@@ -11,13 +11,12 @@ export class App extends Component {
     filter: '',
   };
 
-  handleAddContact = e => {
-    const form = e.target;
+  handleAddContact = ({ name, number }) => {
     this.setState(prevState => {
       const newName = {
         id: nanoid(),
-        name: form.elements.name.value,
-        number: form.elements.number.value,
+        name: name,
+        number: number,
       };
       return {
         contacts: [newName, ...prevState.contacts],
